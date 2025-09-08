@@ -1,7 +1,7 @@
 FROM libretranslate/libretranslate:latest
 
+# Disable API key (optional)
 ENV DISABLE_API_KEY=true
 
-# Let Render assign the port
-ENTRYPOINT ["sh", "-c"]
-CMD ["python3 -m libretranslate --host 0.0.0.0 --port ${PORT}"]
+# Render assigns $PORT
+CMD ["--host", "0.0.0.0", "--port", "${PORT}"]
