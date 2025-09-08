@@ -1,14 +1,8 @@
 # Use official LibreTranslate image
 FROM libretranslate/libretranslate:latest
 
-# Disable API key for internal use
-ENV DISABLE_API_KEY=true
-
-# Use Render's assigned PORT environment variable
-ENV PORT=${PORT:-5000}
-
-# Expose default port (optional)
+# Expose port 5000 for the service
 EXPOSE 5000
 
-# Start LibreTranslate
-CMD ["python3", "-m", "libretranslate"]
+# Disable API key for internal use (optional)
+ENV DISABLE_API_KEY=true
