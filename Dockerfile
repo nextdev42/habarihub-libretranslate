@@ -1,7 +1,7 @@
 FROM libretranslate/libretranslate:latest
 
-# Disable API key (optional)
+# Disable API key for internal use
 ENV DISABLE_API_KEY=true
 
-# Render assigns $PORT
-CMD ["--host", "0.0.0.0", "--port", "${PORT}"]
+# Run with Render's assigned port
+CMD sh -c "libretranslate --host 0.0.0.0 --port $PORT"
